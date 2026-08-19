@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryan Belkin | Biomechanical Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b;
+  --card:#17181b;
+  --border:rgba(255,255,255,0.09);
+  --border-hi:rgba(255,255,255,0.16);
+  --text:#efece6;
+  --text-dim:#a8a49c;
+  --text-faint:#716d66;
+  --accent:#cf7643;
+  --accent-hi:#e69463;
+  --accent-dim:#8a4d2a;
+  --radius:14px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif; font-weight:600; letter-spacing:-0.01em;}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+
+/* HEADER */
+header.simple{padding:80px 0 64px; border-bottom:1px solid var(--border);}
+header.simple h1{font-size:clamp(2.2rem,5vw,3rem); margin-bottom:10px;}
+header.simple .tagline{color:var(--accent-hi); font-size:1rem; font-weight:500; margin-bottom:22px;}
+header.simple .bio{color:var(--text-dim); font-size:1.02rem; max-width:680px; margin-bottom:18px;}
+header.simple .contact-line{color:var(--text-faint); font-size:0.9rem; font-family:'JetBrains Mono',monospace;}
+header.simple .contact-line a{color:var(--text-dim); border-bottom:1px solid var(--border-hi); padding-bottom:1px;}
+header.simple .contact-line a:hover{color:var(--accent-hi); border-color:var(--accent);}
+
+/* PROJECTS */
+section#work{padding:70px 0 100px;}
+.project{
+  border-top:1px solid var(--border);
+  padding:70px 0;
+  display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:start;
+}
+.project:first-of-type{border-top:none; padding-top:0;}
+.project-info .tag{
+  display:inline-block; font-size:0.72rem; letter-spacing:0.09em; text-transform:uppercase;
+  color:var(--accent-hi); background:rgba(207,118,67,0.12); border:1px solid rgba(207,118,67,0.28);
+  padding:5px 12px; border-radius:100px; margin-bottom:18px; font-weight:600;
+}
+.project-info h2{font-size:1.7rem; margin-bottom:6px; line-height:1.15;}
+.project-info .proj-sub{color:var(--text-faint); font-size:0.86rem; margin-bottom:20px; font-family:'JetBrains Mono',monospace;}
+.project-info p{color:var(--text-dim); margin-bottom:18px; font-size:0.97rem;}
+.project-info .highlights{list-style:none; margin:20px 0; display:flex; flex-direction:column; gap:11px;}
+.project-info .highlights li{padding-left:22px; position:relative; font-size:0.92rem; color:var(--text-dim);}
+.project-info .highlights li::before{content:"\2192"; position:absolute; left:0; color:var(--accent); font-weight:600;}
+.project-info .highlights strong{color:var(--text); font-weight:600;}
+.stack{display:flex; flex-wrap:wrap; gap:8px; margin-top:24px;}
+.chip{
+  font-size:0.75rem; padding:6px 12px; border:1px solid var(--border-hi); border-radius:8px;
+  color:var(--text-dim); font-family:'JetBrains Mono',monospace;
+}
+.stat-row{display:flex; gap:26px; margin-top:26px; flex-wrap:wrap;}
+.stat-row .stat{border-left:2px solid var(--accent-dim); padding-left:12px;}
+.stat-row .stat b{display:block; font-family:'Fraunces',serif; font-size:1.25rem; color:var(--text);}
+.stat-row .stat span{font-size:0.75rem; color:var(--text-faint);}
+
+.project-media{display:flex; flex-direction:column; gap:14px;}
+.media-hero{
+  border-radius:var(--radius); overflow:hidden; border:1px solid var(--border);
+  position:relative; aspect-ratio:4/3; background:var(--card);
+}
+.media-hero img{width:100%; height:100%; object-fit:cover;}
+.media-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+.media-strip .thumb{
+  border-radius:10px; overflow:hidden; border:1px solid var(--border); aspect-ratio:1/1;
+  cursor:pointer; position:relative; background:var(--card);
+}
+.media-strip .thumb img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease;}
+.media-strip .thumb:hover img{transform:scale(1.06);}
+.caption{font-size:0.78rem; color:var(--text-faint); margin-top:2px; font-style:italic;}
+
+.process{margin-top:6px;}
+.process h4{font-size:0.76rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-faint); margin-bottom:14px; font-family:'Inter'; font-weight:600;}
+.process ol{list-style:none; display:flex; flex-direction:column; gap:10px;}
+.process li{display:flex; gap:12px; font-size:0.89rem; color:var(--text-dim); align-items:baseline;}
+.process li .idx{color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:0.76rem; min-width:18px;}
+
+/* FOOTER */
+footer.simple{border-top:1px solid var(--border); padding:36px 0; text-align:center;}
+footer.simple p{color:var(--text-faint); font-size:0.82rem;}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed; inset:0; background:rgba(6,6,7,0.94); z-index:1000;
+  display:none; align-items:center; justify-content:center; padding:40px;
+  backdrop-filter:blur(6px);
+}
+.lightbox.active{display:flex;}
+.lightbox img{max-width:90vw; max-height:85vh; border-radius:8px; box-shadow:0 30px 80px rgba(0,0,0,0.6);}
+.lightbox-close{position:absolute; top:28px; right:36px; color:var(--text); font-size:2rem; cursor:pointer; line-height:1;}
+.lightbox-cap{position:absolute; bottom:30px; left:0; right:0; text-align:center; color:var(--text-dim); font-size:0.88rem;}
+
+@media (max-width:920px){
+  .project{grid-template-columns:1fr; gap:32px;}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px;}
+  header.simple{padding:56px 0 44px;}
+}
+</style>
+</head>
+<body>
+
+<header class="simple wrap">
+  <h1>Ryan Belkin</h1>
+  <div class="tagline">Biomechanical Engineering, Stanford University &middot; Class of 2026</div>
+  <p class="contact-line"><a href="mailto:ryansethbelkin@gmail.com">ryansethbelkin@gmail.com</a> &nbsp;&middot;&nbsp; (805) 450-5358</p>
+</header>
+
+<main>
+  <section id="work" class="wrap">
+
+    <!-- PROJECT 1: CENTRIFUGE -->
+    <article class="project">
+      <div class="project-info">
+        <span class="tag">BIOE 123 &middot; Team P13</span>
+        <h2>Solar-Powered Desktop Centrifuge</h2>
+        <div class="proj-sub">with Raghad Asiri &amp; Tawfique Ali &middot; Jan 2025 &ndash; Apr 2025 &middot; Stanford University</div>
+        <p>A portable, multi-modal centrifuge built to separate blood samples in under two minutes. It is designed to run entirely off-grid on solar power for low-resource field settings.</p>
+        <p>I owned the sensing and control subsystem: a Hall-effect feedback loop reading a magnet on the rotor base into a proportional controller, plus the Raspberry Pi touchscreen interface for setting speed and duration.</p>
+        <ul class="highlights">
+          <li><strong>Control:</strong> proportional closed-loop control from a Hall-effect sensor achieved <strong>4.6% error</strong> against a 2000 RPM setpoint (spec was &plusmn;5%).</li>
+          <li><strong>Power:</strong> solar array delivers 15V / 70mA in direct sunlight, exactly what the motor needs to hit 2500 RPM outdoors and untethered.</li>
+          <li><strong>Interface:</strong> built a touchscreen "Centrifuge Controller" GUI (Kivy, on Raspberry Pi) so a user never has to touch the Arduino IDE.</li>
+          <li><strong>Iteration:</strong> went through a full V1 &rarr; V2 &rarr; V3 redesign cycle, rebuilding the rotor base, motor, and control electronics after each round of requirement testing.</li>
+        </ul>
+        <div class="stat-row">
+          <div class="stat"><b>4.6%</b><span>speed control error</span></div>
+          <div class="stat"><b>&lt;2min</b><span>to separate a sample</span></div>
+          <div class="stat"><b>15V</b><span>solar output in sunlight</span></div>
+        </div>
+        <div class="stack">
+          <span class="chip">Arduino</span>
+          <span class="chip">Raspberry Pi / Kivy</span>
+          <span class="chip">Hall-Effect Sensing</span>
+          <span class="chip">PWM Motor Control</span>
+          <span class="chip">CAD / 3D Printing</span>
+        </div>
+      </div>
+      <div class="project-media">
+        <div class="media-hero"><img src="centrifuge_hero.jpg" alt="Assembled solar-powered desktop centrifuge" loading="lazy"></div>
+        <div class="media-strip">
+          <div class="thumb" data-cap="Internal wiring: Arduino, MOSFET driver, Hall-effect sensing circuit"><img src="centrifuge_wiring.jpg" loading="lazy"></div>
+          <div class="thumb" data-cap="Raspberry Pi touchscreen running the Centrifuge Controller GUI"><img src="centrifuge_touchscreen.jpg" loading="lazy"></div>
+          <div class="thumb" data-cap="Field-testing the solar array output with a multimeter"><img src="centrifuge_solartest.jpg" loading="lazy"></div>
+        </div>
+        <p class="caption">V3 final build, control electronics, GUI, and outdoor solar validation.</p>
+      </div>
+    </article>
+
+    <!-- PROJECT 2: TAMBOURINE -->
+    <article class="project">
+      <div class="project-info">
+        <span class="tag">ME 103 &middot; Solo Project</span>
+        <h2>"Out of Tune": Tambourine Design &amp; Fabrication</h2>
+        <div class="proj-sub">Independent &middot; Jan 2026 &ndash; Apr 2026 &middot; Stanford University</div>
+        <p>My suite had a tambourine that became a real fixture of our space, since everyone grabbed it during jam sessions. When it got lost, I decided to design and fabricate a new one from scratch, start to finish, as my ME 103 manufacturing project.</p>
+        <p>Every part is something I made myself: waterjet-cut and hand-formed the sheet-metal frame, oxy- and TIG-welded the joints, machined and tapped the aluminum grip on the manual mill, cast it in the foundry, and powder-coated the final frame.</p>
+        <ul class="highlights">
+          <li><strong>Frame:</strong> waterjet-cut sheet steel, hand-formed around a jig, joined with oxy-acetylene and finished with TIG welds.</li>
+          <li><strong>Grip:</strong> custom aluminum handgrip, cast in the foundry, then faced, edge-found, drilled, and tapped for 10-24 threads on the manual mill.</li>
+          <li><strong>Finish:</strong> hand-filed and sanded from 120 to 1200 grit, polished, then powder-coated for a durable matte-black final finish.</li>
+          <li><strong>Proof of function:</strong> tested it the way it's meant to be used, playing live with my band.</li>
+        </ul>
+        <div class="process">
+          <h4>Build sequence</h4>
+          <ol>
+            <li><span class="idx">01</span> Concept sketch &amp; jingle layout</li>
+            <li><span class="idx">02</span> Waterjet-cut frame + sheet forming</li>
+            <li><span class="idx">03</span> Oxy-acetylene + TIG welding</li>
+            <li><span class="idx">04</span> Cast, machine &amp; tap aluminum grip</li>
+            <li><span class="idx">05</span> Finish: filing, sanding, powder coat</li>
+            <li><span class="idx">06</span> Final assembly &amp; proof of function</li>
+          </ol>
+        </div>
+        <div class="stack">
+          <span class="chip">Waterjet Cutting</span>
+          <span class="chip">TIG / Oxy Welding</span>
+          <span class="chip">Manual Mill &amp; Lathe</span>
+          <span class="chip">Metal Casting</span>
+          <span class="chip">SolidWorks</span>
+        </div>
+      </div>
+      <div class="project-media">
+        <div class="media-hero" style="aspect-ratio:1118/747;"><img src="tambourine_hero.jpg" alt="Finished tambourine being played outdoors" loading="lazy"></div>
+        <div class="media-strip">
+          <div class="thumb" data-cap="Waterjet-cutting the frame components"><img src="tambourine_waterjet.jpg" loading="lazy"></div>
+          <div class="thumb" data-cap="Close-up of a finished TIG weld seam"><img src="tambourine_tigweld.jpg" loading="lazy"></div>
+          <div class="thumb" data-cap="Powder-coating the finished frame"><img src="tambourine_powdercoat.jpg" loading="lazy"></div>
+        </div>
+        <div class="media-strip">
+          <div class="thumb" data-cap="Final assembly, outdoor shots"><img src="tambourine_finalassembly.jpg" loading="lazy"></div>
+          <div class="thumb" data-cap="Proof of function, playing with the band"><img src="tambourine_proof.jpg" loading="lazy"></div>
+          <div class="thumb" data-cap="Original concept sketch"><img src="tambourine_conceptsketch.jpg" loading="lazy"></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 3: OXIMETER -->
+    <article class="project">
+      <div class="project-info">
+        <span class="tag">Senior Capstone &middot; BIOE 141A/B</span>
+        <h2>Esophageal Pulmonary Venous Oximeter</h2>
+        <div class="proj-sub">Team Circumflex &middot; Sept 2025 &ndash; Apr 2026 &middot; Stanford University</div>
+        <p>A transesophageal photoacoustic oximetry probe that measures pulmonary venous oxygen saturation in neonates with congenital heart disease. It works minimally invasively from inside the esophagus, with the goal of cutting down time spent in the NICU.</p>
+        <p>I worked on the optical and signal-processing side: relating photoacoustic signal amplitude to hemoglobin concentration, choosing excitation wavelengths from the HbO&#8322;/HbR absorption spectra, and building and validating the laser-ultrasound benchtop rig.</p>
+        <ul class="highlights">
+          <li><strong>Concept:</strong> multispectral optical pulses generate photoacoustic waves in blood, and a co-located ultrasound receiver detects them so we can estimate oxygen saturation through spectral unmixing.</li>
+          <li><strong>Validation:</strong> benchtop testing across 25/75/150 mg/mL hemoglobin samples showed a statistically significant concentration-dependent signal increase (one-way ANOVA, p &lt; 0.0001).</li>
+          <li><strong>Confound testing:</strong> found that fibrinogen suppresses this concentration dependence, which matters for interpreting real blood samples going forward.</li>
+        </ul>
+        <div class="stat-row">
+          <div class="stat"><b>200</b><span>peaks analyzed / condition</span></div>
+          <div class="stat"><b>p&lt;0.0001</b><span>Hb-concentration effect</span></div>
+          <div class="stat"><b>5</b><span>person team</span></div>
+        </div>
+        <div class="stack">
+          <span class="chip">Photoacoustic Sensing</span>
+          <span class="chip">Signal Processing</span>
+          <span class="chip">MATLAB / Python</span>
+          <span class="chip">Optics</span>
+          <span class="chip">Medical Devices</span>
+        </div>
+      </div>
+      <div class="project-media">
+        <div class="media-hero"><img src="oximeter_conceptsketch.jpg" alt="E-PVO concept sketch showing probe placement in the neonatal esophagus" loading="lazy"></div>
+        <div class="media-strip">
+          <div class="thumb" data-cap="Laser diode used for multispectral photoacoustic excitation"><img src="oximeter_laser.jpg" loading="lazy"></div>
+          <div class="thumb" data-cap="Laser + ultrasound transducer benchtop test rig"><img src="oximeter_bench.jpg" loading="lazy"></div>
+          <div class="thumb" data-cap="Echocardiogram used for anatomical / placement reference"><img src="oximeter_echo.jpg" loading="lazy"></div>
+        </div>
+        <p class="caption">Concept sketch (mine) &rarr; optical setup &rarr; benchtop validation. Prototype is currently at the benchtop-validation stage ahead of preclinical testing.</p>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer class="simple wrap">
+  <p>Ryan Belkin &middot; Biomechanical Engineering, Stanford University</p>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">&times;</span>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-cap" id="lightboxCap"></div>
+</div>
+
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCap = document.getElementById('lightboxCap');
+document.querySelectorAll('.thumb').forEach(t=>{
+  t.addEventListener('click', ()=>{
+    const img = t.querySelector('img');
+    lightboxImg.src = img.src;
+    lightboxCap.textContent = t.getAttribute('data-cap') || '';
+    lightbox.classList.add('active');
+  });
+});
+document.getElementById('lightboxClose').addEventListener('click', ()=>lightbox.classList.remove('active'));
+lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('active'); });
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') lightbox.classList.remove('active'); });
+</script>
+
+</body>
+</html>
